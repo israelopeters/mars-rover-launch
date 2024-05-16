@@ -25,14 +25,20 @@ class InputParserTest {
 
 
     @Test
-    void getInstruction() {
+    void Instruction() {
         //Arrange
         InputParser testParser = new InputParser();
 
         //Act
+        Instruction testL = testParser.instructionParser("L");
+        Instruction testR = testParser.instructionParser("R");
+        Instruction testM = testParser.instructionParser("M");
 
-
-
+        //Assert
+        assertEquals(Instruction.L, testL);
+        assertEquals(Instruction.R, testR);
+        assertEquals(Instruction.M, testM);
+        assertEquals(null, testParser.instructionParser("A"));
     }
 
     @Test
