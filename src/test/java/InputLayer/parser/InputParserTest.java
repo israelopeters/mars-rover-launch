@@ -14,23 +14,24 @@ class InputParserTest {
     @Test
     void getPlateauSize(){
         //Arrange
-        InputParser testParser = new InputParser(new PlateauSize(2,6));
+        InputParser testParser1 = new InputParser();
+        InputParser testParser2 = new InputParser();
 
-        //Act
-        int testParserPlateauSizeX = testParser.getPlateauSize().getX();
-        int testParserPlateauSizeY = testParser.getPlateauSize().getY();
-        int[] actualArray = {testParserPlateauSizeX, testParserPlateauSizeY};
-        int[] expectedArray = {2,6};
+        //Act and Assert
+        assertEquals(null, testParser1.getPlateauSize());
+        assertEquals(5, testParser2.plateauSizeParser("56").getX());
+        assertEquals(6, testParser2.plateauSizeParser("56").getY());
 
-
-        //Assert
-        //assertArrayEquals(null, actualArray);
-        assertArrayEquals(expectedArray, actualArray);
     }
 
 
     @Test
     void getInstruction() {
+        //Arrange
+        InputParser testParser = new InputParser();
+
+        //Act
+
 
 
     }

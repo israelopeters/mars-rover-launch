@@ -16,4 +16,5 @@ public class PlateauSize {
     public int getY() {
         return y;
     }
+
 }
