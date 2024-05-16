@@ -13,14 +13,18 @@ public class InputParser {
     }
 
     public Position positionParser(String position) {
-        this.position.setX(position.charAt(0));
-        this.position.setY(position.charAt(1));
-        switch (position.indexOf(1)) {
+        char[] tempVar = position.toCharArray();
+        int x = Integer.parseInt(String.valueOf(tempVar[0]));
+        int y = Integer.parseInt(String.valueOf(tempVar[1]));
+        this.position = new Position(x, y, null);
+
+        switch (tempVar[2]) {
             case 'N' -> this.position.setFacing(CompassDirection.N);
             case 'E' -> this.position.setFacing(CompassDirection.E);
             case 'W' -> this.position.setFacing(CompassDirection.W);
             case 'S' -> this.position.setFacing(CompassDirection.S);
         }
+
         return this.position;
     }
 
