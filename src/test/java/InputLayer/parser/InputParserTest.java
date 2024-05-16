@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class InputParserTest {
 
     @Test
-    void getPlateauSize(){
+    void PlateauSize(){
         //Arrange
         InputParser testParser1 = new InputParser();
         InputParser testParser2 = new InputParser();
@@ -21,7 +21,6 @@ class InputParserTest {
         assertEquals(null, testParser1.getPlateauSize());
         assertEquals(5, testParser2.plateauSizeParser("56").getX());
         assertEquals(6, testParser2.plateauSizeParser("56").getY());
-
     }
 
 
