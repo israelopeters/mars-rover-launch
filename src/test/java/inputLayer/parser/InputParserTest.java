@@ -1,7 +1,7 @@
 package inputLayer.parser;
 
 import inputLayer.CompassDirection;
-import inputLayer.Instruction;
+import inputLayer.RotateInstruction;
 import inputLayer.Position;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +28,12 @@ class InputParserTest {
         InputParser testParser = new InputParser();
 
         //Act
-        Instruction testL = testParser.instructionParser("L");
-        Instruction testR = testParser.instructionParser("R");
-        Instruction testM = testParser.instructionParser("M");
+        RotateInstruction testL = testParser.instructionParser("L");
+        RotateInstruction testR = testParser.instructionParser("R");
 
         //Assert
-        assertEquals(Instruction.L, testL);
-        assertEquals(Instruction.R, testR);
-        assertEquals(Instruction.M, testM);
+        assertEquals(RotateInstruction.L, testL);
+        assertEquals(RotateInstruction.R, testR);
         assertEquals(null, testParser.instructionParser("A"));
     }
 

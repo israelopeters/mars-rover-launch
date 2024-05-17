@@ -1,7 +1,6 @@
 package missionLogic;
 
 import inputLayer.CompassDirection;
-import inputLayer.Instruction;
 import inputLayer.Position;
 import org.junit.jupiter.api.Test;
 
@@ -66,6 +65,18 @@ public class RoverTest {
         //Assert
         assertEquals(expected.getX(), actual.getX());
         assertEquals(expected.getY(), actual.getY());
+
+    }
+
+    @Test
+    void rotate() {
+        //Arrange
+        Rover testRover = new Rover("Alpha", new Position(1,1,CompassDirection.S));
+
+        //Act
+
+
+        //Assert
 
     }
 

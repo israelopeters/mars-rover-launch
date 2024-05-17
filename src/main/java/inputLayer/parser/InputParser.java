@@ -1,7 +1,7 @@
 package inputLayer.parser;
 
 import inputLayer.CompassDirection;
-import inputLayer.Instruction;
+import inputLayer.RotateInstruction;
 import inputLayer.PlateauSize;
 import inputLayer.Position;
 
@@ -28,11 +28,10 @@ public class InputParser {
         return this.position;
     }
 
-    public Instruction instructionParser(String instructions) { //Expecting a single string per time
+    public RotateInstruction instructionParser(String instructions) { //Expecting a single string per time
             switch (instructions) {
-                case "L" -> {return Instruction.L;}
-                case "R" -> {return Instruction.R;}
-                case "M" -> {return Instruction.M;}
+                case "L" -> {return RotateInstruction.L;}
+                case "R" -> {return RotateInstruction.R;}
                 default -> {return null;}
             }
     }

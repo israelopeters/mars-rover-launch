@@ -1,8 +1,5 @@
 package missionLogic;
 
-import inputLayer.CompassDirection;
-import inputLayer.Instruction;
-import inputLayer.PlateauSize;
 import inputLayer.Position;
 
 public class Rover {
