@@ -1,5 +1,6 @@
 package missionLogic;
 
+import inputLayer.CompassDirection;
 import inputLayer.Plateau;
 import inputLayer.PlateauSize;
 import inputLayer.Position;
@@ -27,6 +28,24 @@ public class MissionControlTest {
         assertEquals(expectedY, actualY);
     }
 
+    @Test
+    void launchRoverTest () {
+        //Arrange
+        MissionControl missionControl = new MissionControl("Mars Mission 2130");
+        missionControl.initializePlateau(new PlateauSize(4,7));
+        int expected = 0;
 
+        //Act
+        missionControl.launchRover("Alpha", new Position(0,0, CompassDirection.N));
+        int actual = missionControl.launchedRovers.get("Alpha").position.getX();
+
+        //Assert
+        assertEquals(expected, actual);
+
+
+
+
+
+    }
 
 }
