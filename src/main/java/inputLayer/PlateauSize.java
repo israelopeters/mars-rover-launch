@@ -1,4 +1,4 @@
-package InputLayer;
+package inputLayer;
 
 public class PlateauSize {
     private final int x;

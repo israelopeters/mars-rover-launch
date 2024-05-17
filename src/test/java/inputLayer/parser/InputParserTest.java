@@ -1,12 +1,9 @@
-package InputLayer.parser;
+package inputLayer.parser;
 
-import InputLayer.CompassDirection;
-import InputLayer.Instruction;
-import InputLayer.PlateauSize;
-import InputLayer.Position;
+import inputLayer.CompassDirection;
+import inputLayer.Instruction;
+import inputLayer.Position;
 import org.junit.jupiter.api.Test;
-
-import java.sql.Array;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package InputLayer;
+package inputLayer;
 
 public enum CompassDirection {
     N,

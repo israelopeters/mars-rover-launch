@@ -1,9 +1,9 @@
-package InputLayer.parser;
+package inputLayer.parser;
 
-import InputLayer.CompassDirection;
-import InputLayer.Instruction;
-import InputLayer.PlateauSize;
-import InputLayer.Position;
+import inputLayer.CompassDirection;
+import inputLayer.Instruction;
+import inputLayer.PlateauSize;
+import inputLayer.Position;
 
 public class InputParser {
     public  Position position;

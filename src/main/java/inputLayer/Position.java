@@ -1,4 +1,4 @@
-package InputLayer;
+package inputLayer;
 
 public class Position {
     private int x;
