@@ -1,9 +1,6 @@
 package missionLogic;
 
-import inputLayer.CompassDirection;
-import inputLayer.Plateau;
-import inputLayer.PlateauSize;
-import inputLayer.Position;
+import inputLayer.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,9 +38,24 @@ public class MissionControlTest {
 
         //Assert
         assertEquals(expected, actual);
+    }
 
+    @Test
+    void instructRover() {
+        //Arrange
+        MissionControl missionControl = new MissionControl("Mars Mission 2130");
+        missionControl.initializePlateau(new PlateauSize(6,6));
+        missionControl.launchRover("Alpha", new Position(0,0, CompassDirection.N));
 
+        Rover testRover = missionControl.launchedRovers.get("Alpha");
+        CompassDirection expected = CompassDirection.W;
 
+        //Act
+        missionControl.instructRover(testRover.getName(), RotateInstruction.L); //add option for move()
+        CompassDirection actual = testRover.position.getFacing();
+
+        //Assert
+        assertEquals(expected, actual);
 
 
     }

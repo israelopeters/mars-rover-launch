@@ -3,6 +3,7 @@ package missionLogic;
 import inputLayer.Plateau;
 import inputLayer.PlateauSize;
 import inputLayer.Position;
+import inputLayer.RotateInstruction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,5 +26,9 @@ public class MissionControl {
     public void launchRover(String name, Position position) {
         Rover rover = new Rover(name, position);
         launchedRovers.put(name, rover);
+    }
+
+    public Position instructRover(String roverName, RotateInstruction rotateInstruction) {
+        return launchedRovers.get(name).rotate(rotateInstruction);
     }
 }
