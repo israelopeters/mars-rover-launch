@@ -2,6 +2,7 @@ package missionLogic;
 
 import inputLayer.CompassDirection;
 import inputLayer.Position;
+import inputLayer.RotateInstruction;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -71,12 +72,23 @@ public class RoverTest {
     @Test
     void rotate() {
         //Arrange
-        Rover testRover = new Rover("Alpha", new Position(1,1,CompassDirection.S));
+        Rover testRover = new Rover("Alpha", new Position(1,1,CompassDirection.N));
+        CompassDirection expectedEast = new Position(1,1,CompassDirection.E).getFacing();
+        CompassDirection expectedWest = new Position(1,1,CompassDirection.W).getFacing();
+        CompassDirection expectedSouth = new Position(1,1,CompassDirection.S).getFacing();
+        CompassDirection expectedNorth = new Position(1,1,CompassDirection.N).getFacing();
 
         //Act
-
+        CompassDirection actualEast = testRover.rotate(RotateInstruction.R).getFacing();
+        CompassDirection actualSouth = testRover.rotate(RotateInstruction.R).getFacing();
+        CompassDirection actualWest = testRover.rotate(RotateInstruction.R).getFacing();
+        CompassDirection actualNorth = testRover.rotate(RotateInstruction.R).getFacing();
 
         //Assert
+        assertEquals(expectedEast, actualEast);
+        assertEquals(expectedWest, actualWest);
+        assertEquals(expectedSouth, actualSouth);
+        assertEquals(expectedNorth, actualNorth);
 
     }
 

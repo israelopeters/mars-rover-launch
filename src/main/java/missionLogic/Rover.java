@@ -1,16 +1,17 @@
 package missionLogic;
 
+import inputLayer.CompassDirection;
 import inputLayer.Position;
+import inputLayer.RotateInstruction;
 
 public class Rover {
-    String name;
-    Position position;
+    private final String name;
+    public Position position;
 
     public Rover(String name, Position position) {
         this.position = position;
         this.name = name;
     }
-
 
     public Position move() {
         switch (position.getFacing()) {
@@ -21,4 +22,26 @@ public class Rover {
         }
         return position;
     };
+
+    public Position rotate(RotateInstruction rotateInstruction) {
+        switch (position.getFacing()) {
+            case N -> {position.setFacing(
+                    rotateInstruction == RotateInstruction.L ? CompassDirection.W : CompassDirection.E);
+                return position;}
+            case E -> {position.setFacing(
+                    rotateInstruction == RotateInstruction.L ? CompassDirection.N : CompassDirection.S);
+                return position;}
+            case W -> {position.setFacing(
+                    rotateInstruction == RotateInstruction.L ? CompassDirection.S : CompassDirection.N);
+                return position;}
+            case S -> {position.setFacing(
+                    rotateInstruction == RotateInstruction.L ? CompassDirection.E : CompassDirection.W);
+                return position;}
+            default -> {return null;}
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
 }
