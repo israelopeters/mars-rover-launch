@@ -13,8 +13,7 @@ import java.util.Map;
 public class MissionControl {
     String name;
     Plateau plateau;
-    Map<String, Rover> launchedRovers = new HashMap<>();
-    ArrayList<Rover> retiredRovers;
+    public Map<String, Rover> launchedRovers = new HashMap<>();
 
     public MissionControl(String name) {
         this.name = name;
