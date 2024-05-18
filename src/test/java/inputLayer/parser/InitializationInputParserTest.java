@@ -1,5 +1,6 @@
 package inputLayer.parser;
 
+import inputLayer.CompassDirection;
 import inputLayer.Plateau;
 import inputLayer.PlateauSize;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,21 @@ class InitializationInputParserTest {
 
     @Test
     void parseLineTwo() {
+        //Arrange
+        InitializationInputParser initializationInputParser = new InitializationInputParser(new String[]{"5 6", "1 2 N"});
+        int expectedX = 1;
+        int expectedY = 2;
+        CompassDirection expectedFacing = CompassDirection.N;
+
+        //Act
+        int actualX = initializationInputParser.parseLineTwo("Alpha").getX();
+        int actualY = initializationInputParser.parseLineTwo("Alpha").getY();
+        CompassDirection actualFacing = initializationInputParser.parseLineTwo("Alpha").getFacing();
+
+        //Assert
+        assertEquals(expectedX, actualX);
+        assertEquals(expectedY, actualY);
+        assertEquals(expectedFacing, actualFacing);
     }
 
     @Test

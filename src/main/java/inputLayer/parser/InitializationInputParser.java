@@ -2,7 +2,9 @@ package inputLayer.parser;
 
 import inputLayer.Plateau;
 import inputLayer.PlateauSize;
+import inputLayer.Position;
 import inputLayer.parser.InputParser;
+import missionLogic.Rover;
 
 public class InitializationInputParser {
 
@@ -23,6 +25,22 @@ public class InitializationInputParser {
 
         PlateauSize plateauSize = inputParser.plateauSizeParser(plateauSizeInputLineOne.toString());
         return new Plateau(plateauSize);
+    }
+
+    //Parse Line Two
+    public Position parseLineTwo(String roverName) {
+        String[] inputLineTwoArray = initializationInput[1].split("\s");
+        for (int i = 0; i < inputLineTwoArray.length; i++) {
+            plateauSizeInputLineTwo.append(inputLineTwoArray[i]);
+        }
+        Position roverPosition = inputParser.positionParser(plateauSizeInputLineTwo.toString());
+        return new Rover(roverName, roverPosition).position;
+
+    }
+
+    //Parse Line Three
+    public void parseLineThree() {
+        plateauSizeInputLineThree = initializationInput[2];
     }
 
 }
