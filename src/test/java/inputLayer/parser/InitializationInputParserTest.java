@@ -19,8 +19,8 @@ class InitializationInputParserTest {
         int expectedY = 6;
 
         //Act
-        int actualX = initializationInputParser.parseLineOne().getPlateauSize().getX();
-        int actualY = initializationInputParser.parseLineOne().getPlateauSize().getY();
+        int actualX = initializationInputParser.parseLineOne().getX();
+        int actualY = initializationInputParser.parseLineOne().getY();
 
         //Assert
         assertEquals(expectedX, actualX);

@@ -19,13 +19,12 @@ public class InitializationInputParser {
     }
 
     //Parse Line One
-    public Plateau parseLineOne() {
+    public PlateauSize parseLineOne() {
         plateauSizeInputLineOne.
                 append(initializationInput[0].split("\s")[0])
                 .append(initializationInput[0].split("\s")[1]);
 
-        PlateauSize plateauSize = inputParser.plateauSizeParser(plateauSizeInputLineOne.toString());
-        return new Plateau(plateauSize);
+        return inputParser.plateauSizeParser(plateauSizeInputLineOne.toString());
     }
 
     //Parse Line Two
