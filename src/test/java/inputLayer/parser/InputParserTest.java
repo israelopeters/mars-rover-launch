@@ -27,13 +27,13 @@ class InputParserTest {
         InputParser testParser = new InputParser();
 
         //Act
-        RotateInstruction testL = testParser.instructionParser("L");
-        RotateInstruction testR = testParser.instructionParser("R");
+        RotateInstruction testL = testParser.rotateInstructionParser("L");
+        RotateInstruction testR = testParser.rotateInstructionParser("R");
 
         //Assert
         assertEquals(RotateInstruction.L, testL);
         assertEquals(RotateInstruction.R, testR);
-        assertEquals(null, testParser.instructionParser("A"));
+        assertEquals(null, testParser.rotateInstructionParser("A"));
     }
 
     @Test

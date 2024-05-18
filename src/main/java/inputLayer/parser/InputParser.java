@@ -28,8 +28,8 @@ public class InputParser {
         return this.position;
     }
 
-    public RotateInstruction instructionParser(String instructions) { //Expecting a single string per time
-            switch (instructions) {
+    public RotateInstruction rotateInstructionParser(String instruction) { //Expecting a single string per time
+            switch (instruction) {
                 case "L" -> {return RotateInstruction.L;}
                 case "R" -> {return RotateInstruction.R;}
                 default -> {return null;}
