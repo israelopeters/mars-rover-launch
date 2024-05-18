@@ -5,6 +5,8 @@ import inputLayer.Plateau;
 import inputLayer.PlateauSize;
 import org.junit.jupiter.api.Test;
 
+import java.lang.module.Configuration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class InitializationInputParserTest {
@@ -12,7 +14,7 @@ class InitializationInputParserTest {
     @Test
     void parseLineOne() {
         //Arrange
-        InitializationInputParser initializationInputParser = new InitializationInputParser(new String[]{"5 6"});
+        InitializationInputParser initializationInputParser = new InitializationInputParser(new String[] {"5 6"});
         int expectedX = 5;
         int expectedY = 6;
 
@@ -28,15 +30,15 @@ class InitializationInputParserTest {
     @Test
     void parseLineTwo() {
         //Arrange
-        InitializationInputParser initializationInputParser = new InitializationInputParser(new String[]{"5 6", "1 2 N"});
+        InitializationInputParser initializationInputParser = new InitializationInputParser(new String[] {"5 6", "1 2 N"});
         int expectedX = 1;
         int expectedY = 2;
         CompassDirection expectedFacing = CompassDirection.N;
 
         //Act
-        int actualX = initializationInputParser.parseLineTwo("Alpha").getX();
-        int actualY = initializationInputParser.parseLineTwo("Alpha").getY();
-        CompassDirection actualFacing = initializationInputParser.parseLineTwo("Alpha").getFacing();
+        int actualX = initializationInputParser.parseLineTwo().getX();
+        int actualY = initializationInputParser.parseLineTwo().getY();
+        CompassDirection actualFacing = initializationInputParser.parseLineTwo().getFacing();
 
         //Assert
         assertEquals(expectedX, actualX);
@@ -44,7 +46,4 @@ class InitializationInputParserTest {
         assertEquals(expectedFacing, actualFacing);
     }
 
-    @Test
-    void parseLineThree() {
-    }
 }
