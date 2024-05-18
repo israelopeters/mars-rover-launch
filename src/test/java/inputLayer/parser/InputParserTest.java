@@ -42,8 +42,8 @@ class InputParserTest {
         InputParser testParser = new InputParser();
 
         //Act
-        Position a = testParser.positionParser("23N");
-        Position b = testParser.positionParser("00F");
+        Position a = testParser.positionParser("2 3 N");
+        Position b = testParser.positionParser("0 0 F");
 
         //Assert
         assertEquals(2, a.getX());
