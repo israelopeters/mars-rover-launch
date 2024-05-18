@@ -16,7 +16,6 @@ class InputParserTest {
         InputParser testParser2 = new InputParser();
 
         //Act and Assert
-        assertEquals(null, testParser1.getPlateauSize());
         assertEquals(5, testParser2.plateauSizeParser("56").getX());
         assertEquals(6, testParser2.plateauSizeParser("56").getY());
     }

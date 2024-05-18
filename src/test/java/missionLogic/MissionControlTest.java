@@ -57,7 +57,6 @@ public class MissionControlTest {
         //Assert
         assertEquals(expected, actual);
 
-
     }
 
 }

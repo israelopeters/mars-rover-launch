@@ -3,26 +3,17 @@ import inputLayer.Position;
 import inputLayer.RotateInstruction;
 import missionLogic.Rover;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
-        Rover testRover = new Rover("Alpha", new Position(1,1, CompassDirection.N));
-        Rover testRover2 = new Rover("Alpha2", new Position(1,1, CompassDirection.N));
+        //Take input
+        String[] input = {"5 5", "1 2 N", "LMLMLMLMM"}; //"3 3 E", "MMRMMRMRRM"};
 
-        System.out.println(testRover.getName());
-        System.out.println(testRover.position.getFacing());
-        System.out.println(testRover.rotate(RotateInstruction.L).getFacing());
-        System.out.println(testRover.rotate(RotateInstruction.L).getFacing());
-        System.out.println(testRover.rotate(RotateInstruction.L).getFacing());
-        System.out.println(testRover.rotate(RotateInstruction.L).getFacing());
-        System.out.println("\n");
-
-        System.out.println(testRover2.getName());
-        System.out.println(testRover2.position.getFacing());
-        System.out.println(testRover2.rotate(RotateInstruction.R).getFacing());
-        System.out.println(testRover2.rotate(RotateInstruction.R).getFacing());
-        System.out.println(testRover2.rotate(RotateInstruction.R).getFacing());
-        System.out.println(testRover2.rotate(RotateInstruction.R).getFacing());
+//        System.out.println(plateauSizeInputLineOne);
+//        System.out.println(plateauSizeInputLineTwo);
+//        System.out.println(plateauSizeInputLineThree);
 
     }
 }

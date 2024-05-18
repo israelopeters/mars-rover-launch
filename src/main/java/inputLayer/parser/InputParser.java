@@ -6,6 +6,7 @@ import inputLayer.PlateauSize;
 import inputLayer.Position;
 
 public class InputParser {
+
     public  Position position;
     private PlateauSize plateauSize;
 
@@ -24,7 +25,6 @@ public class InputParser {
             case 'W' -> this.position.setFacing(CompassDirection.W);
             case 'S' -> this.position.setFacing(CompassDirection.S);
         }
-
         return this.position;
     }
 
@@ -52,10 +52,6 @@ public class InputParser {
         int y = Integer.parseInt(String.valueOf(tempVar[1]));
         this.plateauSize = new PlateauSize(x, y);
         return this.plateauSize;
-    }
-
-    public PlateauSize getPlateauSize() {
-        return plateauSize;
     }
 
 }
