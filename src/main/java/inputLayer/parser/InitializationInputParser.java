@@ -3,6 +3,7 @@ package inputLayer.parser;
 import inputLayer.Plateau;
 import inputLayer.PlateauSize;
 import inputLayer.Position;
+import inputLayer.RotateInstruction;
 import inputLayer.parser.InputParser;
 import missionLogic.Rover;
 
@@ -11,8 +12,6 @@ public class InitializationInputParser {
     public String[] initializationInput;
     public StringBuilder plateauSizeInputLineOne = new StringBuilder();
     public StringBuilder plateauSizeInputLineTwo = new StringBuilder();
-    public String plateauSizeInputLineThree;
-    public Rover rover;
     public InputParser inputParser =  new InputParser();
 
     public InitializationInputParser(String[] initializationInput) {
@@ -21,7 +20,8 @@ public class InitializationInputParser {
 
     //Parse Line One
     public Plateau parseLineOne() {
-        plateauSizeInputLineOne.append(initializationInput[0].split("\s")[0])
+        plateauSizeInputLineOne.
+                append(initializationInput[0].split("\s")[0])
                 .append(initializationInput[0].split("\s")[1]);
 
         PlateauSize plateauSize = inputParser.plateauSizeParser(plateauSizeInputLineOne.toString());
