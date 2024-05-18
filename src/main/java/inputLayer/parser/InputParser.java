@@ -5,23 +5,30 @@ import inputLayer.RotateInstruction;
 import inputLayer.PlateauSize;
 import inputLayer.Position;
 
+import java.util.Arrays;
+
 public class InputParser {
 
     public  Position position;
-    private PlateauSize plateauSize;
 
     public InputParser() {
     }
 
     public Position positionParser(String position) {
-        String[] tempVar = position.split("\s");
+        String[] tempVar;
+        if (position.contains(" ")) {
+            tempVar = position.split(" ");
+        } else {
+            tempVar = position.split("");
+        }
+
         int x = Integer.parseInt(tempVar[0]);
         int y = Integer.parseInt(tempVar[1]);
         this.position = new Position(x, y, null);
 
         switch (tempVar[2]) {
             case "N" -> this.position.setFacing(CompassDirection.N);
-            case "E" -> this.position.setFacing(CompassDirection.E);
+            case "E"-> this.position.setFacing(CompassDirection.E);
             case "W" -> this.position.setFacing(CompassDirection.W);
             case "S" -> this.position.setFacing(CompassDirection.S);
         }
@@ -50,8 +57,7 @@ public class InputParser {
         char[] tempVar = {plateauSize.charAt(0), plateauSize.charAt(1)};
         int x = Integer.parseInt(String.valueOf(tempVar[0]));
         int y = Integer.parseInt(String.valueOf(tempVar[1]));
-        this.plateauSize = new PlateauSize(x, y);
-        return this.plateauSize;
+        return new PlateauSize(x, y);
     }
 
 }
