@@ -27,7 +27,5 @@ public class Main {
         //Instructing second rover
         missionControl.instructRover("Beta", input[4]);
 
-
-
     }
 }

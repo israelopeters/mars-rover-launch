@@ -44,12 +44,12 @@ public class MissionControl {
                 throw new InputMismatchException("Enter a valid instruction");
             }
 
-            if (i == (instruction.length()) - 1) {
-                System.out.println(launchedRovers
-                        .get(roverName)
-                        .position
-                        .toString());
-            }
+//            if (i == (instruction.length()) - 1) {
+//                System.out.println(launchedRovers
+//                        .get(roverName)
+//                        .position
+//                        .toString());
+//            }
         }
         return launchedRovers.get(roverName).position;
     }
