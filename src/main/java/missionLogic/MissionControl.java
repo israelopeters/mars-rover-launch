@@ -1,9 +1,7 @@
 package missionLogic;
 
-import inputLayer.Plateau;
-import inputLayer.PlateauSize;
-import inputLayer.Position;
-import inputLayer.RotateInstruction;
+import inputLayer.*;
+import inputLayer.parser.InputParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +12,7 @@ public class MissionControl {
     String name;
     Plateau plateau;
     public Map<String, Rover> launchedRovers = new HashMap<>();
+    InputParser inputParser = new InputParser();
 
     public MissionControl(String name) {
         this.name = name;
@@ -33,10 +32,25 @@ public class MissionControl {
     }
 
     public Position instructRover(String roverName, String instruction) throws InputMismatchException {
-        if (instruction.equals("M")) {
-            return launchedRovers.get(roverName).move();
-        } else {
-            throw new InputMismatchException("Enter a valid instruction");
+
+        for (int i = 0; i < instruction.length(); i++) {
+            String instructionChar = Character.toString(instruction.charAt(i));
+
+            if (instructionChar.equals("M")) {
+                launchedRovers.get(roverName).move();
+            } else if (instructionChar.equals("L") || instructionChar.equals("R")) {
+                launchedRovers.get(roverName).rotate(inputParser.rotateInstructionParser(instructionChar));
+            } else {
+                throw new InputMismatchException("Enter a valid instruction");
+            }
+
+            if (i == (instruction.length()) - 1) {
+                System.out.println(launchedRovers
+                        .get(roverName)
+                        .position
+                        .toString());
+            }
         }
+        return launchedRovers.get(roverName).position;
     }
 }

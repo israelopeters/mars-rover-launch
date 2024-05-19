@@ -22,42 +22,11 @@ public class Main {
         missionControl.launchRover("Beta", inputParser.positionParser(input[3]));
 
         //Instructing first rover
-        for (int i = 0; i < input[2].length(); i++) {
-            String instruction = Character.toString(input[2].charAt(i));
-
-            if (instruction.equals("M")) {
-                missionControl.instructRover("Alpha", "M");
-            } else {
-                missionControl.instructRover("Alpha", inputParser.rotateInstructionParser(instruction));
-            }
-
-            if (i == (input[2].length()) - 1) {
-                System.out.println(missionControl
-                        .launchedRovers
-                        .get("Alpha")
-                        .position
-                        .toString());
-            }
-        }
+        missionControl.instructRover("Alpha", input[2]);
 
         //Instructing second rover
-        for (int i = 0; i < input[3].length(); i++) {
-            String instruction = Character.toString(input[3].charAt(i));
+        missionControl.instructRover("Beta", input[4]);
 
-            if (instruction.equals("M")) {
-                missionControl.instructRover("Beta", "M");
-            } else {
-                missionControl.instructRover("Beta", inputParser.rotateInstructionParser(instruction));
-            }
-
-            if (i == (input[2].length()) - 1) {
-                System.out.println(missionControl
-                        .launchedRovers
-                        .get("Beta")
-                        .position
-                        .toString());
-            }
-        }
 
 
     }

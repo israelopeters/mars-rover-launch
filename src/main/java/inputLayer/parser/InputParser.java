@@ -8,7 +8,6 @@ import inputLayer.Position;
 import java.util.Arrays;
 
 public class InputParser {
-
     public  Position position;
 
     public InputParser() {
