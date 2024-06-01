@@ -2,17 +2,29 @@ import inputLayer.Position;
 import inputLayer.parser.InitializationInputParser;
 import inputLayer.parser.InputParser;
 import missionLogic.MissionControl;
+import userInterface.UserInterface;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
         //Starting program
+        UserInterface.initializeUserInterface();
+        Scanner scanner = new Scanner(System.in);
+
         //Initializations
-        MissionControl missionControl = new MissionControl("Mars 2024");
+        UserInterface.initializeMissionControl();
+        String missionControlName = scanner.nextLine();
+        MissionControl missionControl = new MissionControl(missionControlName);
+        InputParser inputParser = new InputParser();
+
+        UserInterface.initializePlateau();
+        String plateauSize = scanner.nextLine();
+        missionControl.initializePlateau(inputParser.plateauSizeParser(plateauSize));
 
         String[] input = {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"}; //Take input
         InitializationInputParser initializationInputParser = new InitializationInputParser(input);
-        InputParser inputParser = initializationInputParser.inputParser;
 
         //Creating plateau
         missionControl.initializePlateau(initializationInputParser.parseLineOne());
