@@ -56,6 +56,7 @@ public class InputParser {
         String[] tempArray =  plateauSize.split("\s");
         int x = Integer.parseInt(String.valueOf(tempArray[0]));
         int y = Integer.parseInt(String.valueOf(tempArray[1]));
+
         return new PlateauSize(x, y);
     }
 
