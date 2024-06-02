@@ -25,7 +25,7 @@ public class Main {
         String plateauSize = scanner.nextLine();
         missionControl.initializePlateau(inputParser.plateauSizeParser(plateauSize));
 
-        //Launching rovers
+        //Launching rover(s)
         UserInterface.launchRover();
         boolean isLaunch = true;
 
@@ -44,8 +44,7 @@ public class Main {
             }
         }
 
-
-        //Instructing launched rovers
+        //Instructing launched rover(s)
         boolean isInstruct = true;
         UserInterface.instructRoverWelcome();
 
@@ -56,7 +55,9 @@ public class Main {
             UserInterface.instructRoverEnterInstructions();
             String roverInstruction = scanner.nextLine();
 
-            missionControl.instructRover(roverName, roverInstruction);
+            System.out.println(
+                    missionControl.instructRover(roverName, roverInstruction)
+            );
 
             UserInterface.instructRoverAgainPrompt();
             String instructRoverAgain = scanner.nextLine();
@@ -64,7 +65,9 @@ public class Main {
             while (instructRoverAgain.equalsIgnoreCase("Y")) {
                 UserInterface.instructRoverEnterInstructions();
                 String roverInstructionAgain = scanner.nextLine();
-                missionControl.instructRover(roverName, roverInstructionAgain);
+                System.out.println(
+                        missionControl.instructRover(roverName, roverInstructionAgain)
+                );
 
                 UserInterface.instructRoverAgainPrompt();
                 String reInstructAgain = scanner.nextLine();
@@ -74,10 +77,6 @@ public class Main {
             }
             isInstruct = false;
         }
-        //missionControl.instructRover("Alpha", input[2]);
-
-        //Instructing second rover
-        //missionControl.instructRover("Beta", input[4]);
 
     }
 }

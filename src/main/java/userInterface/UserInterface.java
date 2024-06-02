@@ -33,7 +33,7 @@ public class UserInterface {
     public static void launchAnotherRoverPrompt() {System.out.print("\nWould you like to launch another rover? ");}
 
     public static void instructRoverWelcome() {
-        System.out.println("Follow these steps to instruct a rover:");
+        System.out.println("\nFollow these steps to instruct a rover:");
     }
 
     public static void instructRoverEnterName() {

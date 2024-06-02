@@ -16,7 +16,7 @@ public class InputParser {
     public Position positionParser(String position) {
         String[] tempVar;
         if (position.contains(" ")) {
-            tempVar = position.split(" ");
+            tempVar = position.split("\s");
         } else {
             tempVar = position.split("");
         }
