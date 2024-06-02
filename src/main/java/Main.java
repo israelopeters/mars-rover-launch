@@ -14,30 +14,70 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         //Initializations
+        //1: Mission control
         UserInterface.initializeMissionControl();
         String missionControlName = scanner.nextLine();
         MissionControl missionControl = new MissionControl(missionControlName);
         InputParser inputParser = new InputParser();
 
+        //2: Plateau
         UserInterface.initializePlateau();
         String plateauSize = scanner.nextLine();
         missionControl.initializePlateau(inputParser.plateauSizeParser(plateauSize));
 
-        String[] input = {"5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"}; //Take input
-        InitializationInputParser initializationInputParser = new InitializationInputParser(input);
+        //Launching rovers
+        UserInterface.launchRover();
+        boolean isLaunch = true;
 
-        //Creating plateau
-        missionControl.initializePlateau(initializationInputParser.parseLineOne());
+        while (isLaunch) {
+            UserInterface.enterRoverName();
+            String roverName = scanner.nextLine();
 
-        //Launching two rovers
-        missionControl.launchRover("Alpha", initializationInputParser.parseLineTwo());
-        missionControl.launchRover("Beta", inputParser.positionParser(input[3]));
+            UserInterface.enterRoverPosition();
+            String roverPosition = scanner.nextLine();
+            missionControl.launchRover(roverName, inputParser.positionParser(roverPosition));
 
-        //Instructing first rover
-        missionControl.instructRover("Alpha", input[2]);
+            UserInterface.launchAnotherRoverPrompt();
+            String launchAnotherRover = scanner.nextLine();
+            if (!launchAnotherRover.equalsIgnoreCase("Y")) {
+                isLaunch = false;
+            }
+        }
+
+
+        //Instructing launched rovers
+        boolean isInstruct = true;
+        UserInterface.instructRoverWelcome();
+
+        while (isInstruct) {
+            UserInterface.instructRoverEnterName();
+            String roverName = scanner.nextLine();
+
+            UserInterface.instructRoverEnterInstructions();
+            String roverInstruction = scanner.nextLine();
+
+            missionControl.instructRover(roverName, roverInstruction);
+
+            UserInterface.instructRoverAgainPrompt();
+            String instructRoverAgain = scanner.nextLine();
+
+            while (instructRoverAgain.equalsIgnoreCase("Y")) {
+                UserInterface.instructRoverEnterInstructions();
+                String roverInstructionAgain = scanner.nextLine();
+                missionControl.instructRover(roverName, roverInstructionAgain);
+
+                UserInterface.instructRoverAgainPrompt();
+                String reInstructAgain = scanner.nextLine();
+                if (!reInstructAgain.equalsIgnoreCase("Y")) {
+                    instructRoverAgain = "N";
+                }
+            }
+            isInstruct = false;
+        }
+        //missionControl.instructRover("Alpha", input[2]);
 
         //Instructing second rover
-        missionControl.instructRover("Beta", input[4]);
+        //missionControl.instructRover("Beta", input[4]);
 
     }
 }
