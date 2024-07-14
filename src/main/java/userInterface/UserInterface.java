@@ -52,4 +52,15 @@ public class UserInterface {
         //Can only instruct one rover per time
     }
 
+    public static void retireRover() {
+        System.out.print("Retiring rover... \n " +
+                "\n" +
+                "Shutting down mission control...\n" +
+                "\n" +
+                "Shutdown complete!\n" +
+                "\n" +
+                "\n" +
+                "Please restart the app if you would like to launch another mission control instance.");
+    }
+
 }

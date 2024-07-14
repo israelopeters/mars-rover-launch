@@ -1,9 +1,9 @@
-import inputLayer.Position;
-import inputLayer.parser.InitializationInputParser;
 import inputLayer.parser.InputParser;
 import missionLogic.MissionControl;
+import missionLogic.Rover;
 import userInterface.UserInterface;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -77,6 +77,8 @@ public class Main {
             }
             isInstruct = false;
         }
+
+        UserInterface.retireRover();
 
     }
 }
